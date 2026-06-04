@@ -13,6 +13,7 @@ public class InvertedAndRotatedHalfPyramid {
 //        diamond(5);
         numbersPyramid(5);
         palindromicNumberPyramid(5);
+        same(5);
     }
 
     public static void halfAndRotatedPyramid(int size){
@@ -162,5 +163,43 @@ public class InvertedAndRotatedHalfPyramid {
             System.out.println();
         }
     }
+    public static void palindromicNumberPyramid(int size){
+        int numberToBePrinted= -1 ;
+        for (int row = 1; row<=size; row++){
+            for(int spaces =1; spaces<=size-row; spaces++){
+                System.out.print(" ");
+            }
+            numberToBePrinted =row;
+            for(int col = 1; col<=2*row-1; col++){
+                System.out.print(numberToBePrinted);
+                if(col>=row){
+                    numberToBePrinted++;
+                }else {
+                    numberToBePrinted--;
+                }
 
+            }
+            System.out.println();
+        }
+    }
+
+    public static void same(int size){
+
+        // Straight forward loops printing the separate parts of the patterns
+        for (int row = 1; row<=size; row++){
+            //spaces
+            for(int spaces =1; spaces<=size-row; spaces++){
+                System.out.print(" ");
+            }
+            //Desc
+            for(int col = row; col>=1; col--){
+                System.out.print(col);
+            }
+            //Asc
+            for(int invertedRow = 2; invertedRow<=row; invertedRow++){
+                System.out.print(invertedRow);
+            }
+            System.out.println();
+        }
+    }
 }
