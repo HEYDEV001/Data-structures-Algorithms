@@ -7,7 +7,7 @@ public class MaxProfitStocks {
 
     }
     public static int maxProfit(int[] prices) {
-        // here we will compare the buying price with the current price of the stock if it is less than we will calculate the profit for that day
+        // here we will compare the buying price with the current price of the stock if it is less, then we will calculate the profit for that day
         // and if the buying price is more than the price at that day then we will not sell the stocks
         // rather we will buy at the current price (update the buying price to the price of the stock at that day )
         // Also we will actively compare the profit with the maxProfit variable and return the maxProfit
