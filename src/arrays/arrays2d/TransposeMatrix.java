@@ -3,7 +3,6 @@ package arrays.arrays2d;
 import java.util.Arrays;
 
 public class TransposeMatrix {
-    //TODO: Submit on Leetcode
 
     public static void main(String[] args) {
         int[][] matrix = {
