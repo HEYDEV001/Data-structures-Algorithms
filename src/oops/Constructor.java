@@ -79,5 +79,19 @@ Constructor is a special method which is invoked at the time of object creation.
 
 
 /*
-Shallow Copy :
+Shallow Copy : When we change the original object those changes reflect in its copy
+(the new Object(obj2) that we've created by copying the original object (obj1))
+This happens because in shallow copy new objects are not created, They just point to the old objects.
+suppose we have an array marks[] in the object
+Now we create new Object by copying the existing object.
+the marks[] of new object will start pointing to the marks[] of original object
+new Array is not created
+so when we make changes in the original object, they reflect in its copy
+ */
+
+/*
+Deep Copy :When we change the original object those changes do not reflect in its copy
+because in deep copy new object is created same as the original object  ,
+but they are created  in the memory
+so changes do not reflect when made in the original object
  */
