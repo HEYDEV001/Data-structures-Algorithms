@@ -15,4 +15,5 @@ public class PrintBinaryString {
             printBinaryString(n-1, 1, str+"1");
         }
     }
+    // TODO: debug this thoroughly.
 }
