@@ -1,0 +1,4 @@
+FAST AND SLOW POINTER METHOD:-
+     1: for cycle detection
+     2: for finding a node in a cycle etc.
+
