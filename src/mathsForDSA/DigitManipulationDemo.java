@@ -8,6 +8,7 @@ public class DigitManipulationDemo {
         System.out.println(demo.appendDigit(-123, 4));
         System.out.println(demo.appendDigit2(-10,7));
         System.out.println(demo.appendDigitAtFirst(-123, 4));
+        System.out.println(reverseNumber(-22343));
     }
 
     public int findNumberOfDigitsByFormula(int num) { // TC = O(1)
@@ -68,5 +69,14 @@ public class DigitManipulationDemo {
 
     }
 
+    public static int reverseNumber(int num) {
+        int reverse = 0;
+        while (num != 0) {
+            int lastDigit = num % 10;
+            reverse = reverse * 10 + lastDigit;
+            num/=10;
+        }
+        return reverse;
+    }
 
 }
