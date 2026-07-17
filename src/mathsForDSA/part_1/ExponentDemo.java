@@ -1,4 +1,4 @@
-package mathsForDSA;
+package mathsForDSA.part_1;
 
 public class ExponentDemo {
     public static void main(String[] args) {
