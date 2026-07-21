@@ -6,10 +6,10 @@ public class SingleNumber {
         System.out.println(singleNumber(nums));
     }
     public static int singleNumber(int[] nums) {
-        int result =0;
-        for(int index =0; index<nums.length;index++){
-            result ^= nums[index];
+        int singleNumber =0;
+        for(int single: nums){
+            singleNumber ^= single;
         }
-        return result;
+        return singleNumber;
     }
 }
