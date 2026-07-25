@@ -27,10 +27,10 @@ public class CeilingOfAGivennumber {
             } else if (target < arr[middle]) {
                 end = middle - 1;
             } else {
-                return middle;
+                return arr[middle];
             }
 
         }
-        return start;
+        return arr[start];
     }
 }
