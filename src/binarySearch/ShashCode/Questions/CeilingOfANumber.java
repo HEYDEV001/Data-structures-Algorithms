@@ -27,6 +27,8 @@ public class CeilingOfANumber {
         return ans;
     }
 
+    // After all the iteration the start pointer will be at the index of the ceiling of the target
+    // because it's the only condition when we get out of the loop and didn't find the exact target
     public static int findCeilingOfNumberAlternate(int[] arr, int target) {
         int start=0;
         int end = arr.length-1;

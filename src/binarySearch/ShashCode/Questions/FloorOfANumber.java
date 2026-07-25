@@ -26,6 +26,9 @@ public class FloorOfANumber {
         return ans;
     }
 
+
+    // After all the iteration the end pointer will be at the index of the floor of the target
+    // because its the only condition when we get out of the loop and didn't find the exact target
     public static int floorOfNumberAlternate(int[] arr, int target) {
 
         int start =0 ;
