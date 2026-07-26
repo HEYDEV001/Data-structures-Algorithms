@@ -2,7 +2,7 @@ package binarySearch.ShashCode.Questions.BitonicArray;
 
 public class FindPeak {
     public static void main(String[] args) {
-        int [] arr = {1,3,4, 5,3 ,2};
+        int [] arr = {0,5,3,1};
         System.out.println(findPeakElement(arr));
     }
     public static int findPeakElement(int[] nums) {
