@@ -1,6 +1,5 @@
 package binarySearch.ShashCode.Questions.BitonicArray;
 
-import java.util.Spliterator;
 
 public class FindInMountainArray {
     public static void main(String[] args) {
