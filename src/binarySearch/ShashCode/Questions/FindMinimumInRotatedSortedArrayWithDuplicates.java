@@ -1,0 +1,29 @@
+package binarySearch.ShashCode.Questions;
+
+public class FindMinimumInRotatedSortedArrayWithDuplicates {
+    public static void main(String[] args) {
+        int[] arr = {5,1,3};
+        System.out.println(findMin(arr));
+    }
+    public static int findMin(int[] arr) {
+        int start =0;
+        int end= arr.length -1;
+        int min = Integer.MAX_VALUE;
+        while(start<=end){
+            int mid  = start + ((end-start)/2);
+            if(arr[mid] == arr[start] && arr[mid] == arr[end]){
+                start++;
+                end--;
+            }
+            if(arr[start] <= arr[mid]){
+                min = Math.min(min, arr[start]);
+                start = mid +1;
+            }else{
+                min = Math.min(min, arr[mid]);
+                end = mid-1;
+            }
+        }
+
+        return min;
+    }
+}
