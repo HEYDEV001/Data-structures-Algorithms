@@ -2,7 +2,7 @@ package binarySearch.ShashCode.Questions;
 
 public class FindMinimumInRotatedSortedArrayWithDuplicates {
     public static void main(String[] args) {
-        int[] arr = {5,1,3};
+        int[] arr = {3,1};
         System.out.println(findMin(arr));
     }
     public static int findMin(int[] arr) {
@@ -12,10 +12,9 @@ public class FindMinimumInRotatedSortedArrayWithDuplicates {
         while(start<=end){
             int mid  = start + ((end-start)/2);
             if(arr[mid] == arr[start] && arr[mid] == arr[end]){
-                start++;
+                min = Math.min(min, arr[mid]);
                 end--;
-            }
-            if(arr[start] <= arr[mid]){
+            }else if(arr[start] <= arr[mid]){
                 min = Math.min(min, arr[start]);
                 start = mid +1;
             }else{
@@ -23,7 +22,6 @@ public class FindMinimumInRotatedSortedArrayWithDuplicates {
                 end = mid-1;
             }
         }
-
         return min;
     }
 }
