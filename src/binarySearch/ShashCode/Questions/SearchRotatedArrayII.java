@@ -14,10 +14,12 @@ public class SearchRotatedArrayII {
             if(arr[mid] == target){
                 return true;
             }
+            // if there are duplicates in the array then we can trim down the search space to get our sorted part and then later search in the sorted part
             if(arr[start]== arr[mid] && arr[mid] == arr[end]){
                 start++;
                 end--;
             }
+
             else if(arr[start]<= arr[mid]){
                 if(target>= arr[start]  && target<arr[mid]){
                     end = mid-1;
