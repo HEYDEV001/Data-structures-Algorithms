@@ -13,6 +13,9 @@ public class SortedRotatedArray {
             int mid  = start+ ((end-start)/2);
             if(nums[mid]== target) {
                 return mid;
+            } else if(nums[start]== nums[mid] && nums[mid] == nums[end]){
+                start++;
+                end--;
             }
             if(nums[start]<=nums[mid]){
                 if(target  >= nums[start] && target < nums[mid]){
