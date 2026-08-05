@@ -2,46 +2,56 @@ package binarySearch.ShashCode.Questions;
 
 public class MinimumInMaximumPages {
     public static void main(String[] args) {
+        int[] arr = {10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
+                10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
+                10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
+                10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
+                10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
+                10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
+                10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
+                10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
+                10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
+                10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
+                10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
+                10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,
+                10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000
+        };
+        int k =2;
+        System.out.println(findPages(arr, k));
 
     }
-    public int findPages(int[] arr, int k) {
-        // code here
-
-        if(k> arr.length){
-            return -1;
+    public static int findPages(int[] arr, int k) {
+        int start = 0;
+        int end = 0;
+        for (int a : arr) {
+            start = Math.max(start, a);
+            end += a;
         }
-        int start=0;
-        int end =0;
-        for(int a : arr){
-            start = Math.max(start,a);
-            end+=a;
-        }
-        int ans =-1;
-        while(start<=end){
-            int mid = start+((end-start)/2);
-            if(isAllocationPossible(arr, mid, k)){
-                ans  = mid;
-                end  = mid-1;
-            }else{
-                start = mid +1;
-
+        int ans = -1;
+        while (start <= end) {
+            int mid = start + ((end - start) / 2);
+            if (isAllocationPossible(arr, mid, k)) {
+                ans = mid;
+                end = mid - 1;
+            } else {
+                start = mid + 1;
             }
         }
         return ans;
     }
 
-    public boolean isAllocationPossible(int[] arr, int maxPages, int students){
+    private static boolean isAllocationPossible(int[] arr, int maxPagesAllowed, int totalStudents) {
+        int pages = 0;
         int studentCount = 1;
-        int pages =0;
-        for(int a : arr){
-            pages+=a;
-            if(pages>maxPages){
+        for (int a : arr) {
+            pages += a;
+            if (pages > maxPagesAllowed) {
                 pages = a;
                 studentCount++;
             }
-            if(studentCount > students){
-                return false;
-            }
+        }
+        if (studentCount > totalStudents) {
+            return false;
         }
         return true;
     }
