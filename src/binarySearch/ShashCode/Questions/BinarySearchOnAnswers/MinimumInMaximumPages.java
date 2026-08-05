@@ -1,4 +1,4 @@
-package binarySearch.ShashCode.Questions;
+package binarySearch.ShashCode.Questions.BinarySearchOnAnswers;
 
 public class MinimumInMaximumPages {
     public static void main(String[] args) {

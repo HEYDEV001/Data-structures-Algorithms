@@ -1,6 +1,5 @@
-package binarySearch.ShashCode.Questions;
+package binarySearch.ShashCode.Questions.BinarySearchOnAnswers;
 
-import javax.swing.*;
 import java.util.Arrays;
 
 public class KokoEatingBananas {

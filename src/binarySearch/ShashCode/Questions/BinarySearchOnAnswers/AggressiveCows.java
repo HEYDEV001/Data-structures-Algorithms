@@ -1,4 +1,4 @@
-package binarySearch.ShashCode.Questions;
+package binarySearch.ShashCode.Questions.BinarySearchOnAnswers;
 
 import java.util.Arrays;
 
@@ -9,7 +9,6 @@ public class AggressiveCows {
         System.out.println(aggressiveCows(arr, 3));
     }
     public static  int aggressiveCows(int[] arr, int k) {
-        // code here
 
         Arrays.sort(arr);
         int start = Integer.MAX_VALUE;

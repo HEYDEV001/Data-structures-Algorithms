@@ -1,0 +1,43 @@
+Here what we actually do that we dont iterate on the actual array
+but we find the search space for the given array and try to find the answer from the search space
+For Example:
+ public static int shipWithinDays(int[] weights, int days) {
+        int start =Integer.MIN_VALUE;
+        int end =0;
+        for(int w : weights){
+            start = Math.max(start, w);
+            end +=w;
+        }
+        int ans =-1;
+        while(start <= end){
+            int mid = start +((end-start)/2);
+            if(isShippingPossible(weights, mid, days)){
+                ans = mid;
+                end = mid -1;
+            }else{
+                start = mid +1;
+            }
+        }
+        return ans;
+    }
+    public static boolean isShippingPossible(int[] arr, int minimumWeight, int totalDays){
+        int days =1;
+        int totalWeight =0;
+        for(int w : arr){
+            totalWeight+=w;
+            if(totalWeight>minimumWeight){
+                totalWeight = w;
+                days++;
+            }if(days>totalDays){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+ In this code we first find the search Space
+ which is here (MaxElementOfTheArray, TotalSumArray) (start = MaxElementOfTheArray, end=TotalSumArray)
+ then we will apply the binarySearch on this Search Space
+ find the middle if it qualifies the condition(isShippingPossible(weights, mid, days))
+ then we will mark it as an potential answer and continue the search in the search space until we find the monotonic answer(After which the answer is same)
