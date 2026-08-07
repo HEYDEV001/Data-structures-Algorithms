@@ -2,7 +2,7 @@ package binarySearch.ShashCode.Questions;
 
 public class CountPerfectSquares {
     public static void main(String[] args) {
-
+        System.out.println(25/13);
     }
     static int countSquares(int n) {
         // code here

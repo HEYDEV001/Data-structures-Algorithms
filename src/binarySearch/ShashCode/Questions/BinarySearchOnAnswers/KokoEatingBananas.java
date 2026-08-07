@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class KokoEatingBananas {
     public static void main(String[] args) {
-        int[] arr = {3,6,7,11};
+        int[] arr = {3,6,17,11};
         System.out.println(minEatingSpeed(arr, 8));
     }
     public static  int minEatingSpeed(int[] piles, int h) {

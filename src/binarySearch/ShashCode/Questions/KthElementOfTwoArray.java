@@ -3,7 +3,8 @@ package binarySearch.ShashCode.Questions;
 public class KthElementOfTwoArray {
     public static void main(String[] args) {
 
-    }public int kthElement(int[] a, int[] b, int k) {
+    }
+    public int kthElement(int[] a, int[] b, int k) {
         // code here
         if(a.length > b.length){
             return kthElement(b, a, k);
