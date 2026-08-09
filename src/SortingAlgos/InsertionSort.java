@@ -5,6 +5,8 @@ import java.util.Arrays;
 
 public class InsertionSort {
     public static void main(String[] args) {
+        // TC = O(n^2)
+        // SC O(1)
         int [] arr  = {2, 34,5 ,3, 12,1 ,435 ,6 ,87};
         System.out.println(Arrays.toString(insertionSort(arr)));
 
