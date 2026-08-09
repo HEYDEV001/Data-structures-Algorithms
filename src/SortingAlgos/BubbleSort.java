@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class BubbleSort {
     public static void main(String[] args) {
-        int[] arr = {2, 34, 5, 3, 12, 1, 435, 6, 87};
+        int[] arr = {2,3, 4,5 ,6, 7, 8};
         System.out.println(Arrays.toString(bubbleSort(arr)));
     }
 
@@ -12,11 +12,16 @@ public class BubbleSort {
         int n = arr.length;
         int passes = n - 2;
         for (int i = 0; i <= passes; i++) {
+            boolean isSwapped = false;
             for (int j = 0; j <= passes-i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr, j, j+1);
+                    isSwapped = true;
                 }
+
             }
+            System.out.println("hello");
+            if (!isSwapped) {return arr;}
         }
         return arr;
     }
