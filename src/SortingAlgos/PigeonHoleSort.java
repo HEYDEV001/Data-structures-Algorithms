@@ -11,33 +11,34 @@ public class PigeonHoleSort {
         int n = arr.length;
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
-        for (int i = 0; i < n; i++) {
-            if(arr[i] > max) {
-                max = arr[i];
-            }if(arr[i] < min) {
-                min = arr[i];
+        for (int k : arr) {
+            if (k > max) {
+                max = k;
+            }
+            if (k < min) {
+                min = k;
             }
         }
         if(max == Integer.MIN_VALUE || min == Integer.MAX_VALUE) {
             return new int[0];
         }
         int size = max - min + 1;
-        int[] result = new int[size];
+        int[] pigeonHole = new int[size];
 
         for (int i = 0; i < n; i++) {
             int index = arr[i] - min;
-            result[index]++;
+            pigeonHole[index]++;
         }
         int insertionIndex = 0;
         for (int j = 0; j < size; j++) {
-            while (result[j] > 0) {
+            while (pigeonHole[j] > 0) {
                 arr[insertionIndex] = j + min;
                 insertionIndex++;
-                result[j]--;
+                pigeonHole[j]--;
             }
         }
 
-        return result;
+        return arr;
 
     }
 }
