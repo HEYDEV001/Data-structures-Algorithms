@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class CountSort {
     public static void main(String[] args) {
+        // TC = O(N+K) where K is the maximum element
         int [] arr  = {2, 34,5 ,3, 12,1 ,435 ,6 ,87};
         System.out.println(Arrays.toString(countSort(arr)));
     }
