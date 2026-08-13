@@ -75,6 +75,6 @@ public class BitWiseOperators {
         the resulting value will be derived by the formula :
         a >> b = a / 2^b
          */
-        System.out.println(6>>1);
+        System.out.println(10>>2);
     }
 }

@@ -2,8 +2,9 @@ package bitManipulation.ShashCode.LeetCode;
 
 public class SingleNumber2 {
     public static void main(String[] args) {
-        int[] nums = {1,2,2,2,3,3,3,4,4,4};
+        int[] nums = {5,2,2,2,3,3,3,4,4,4};
         System.out.println(singleNumber(nums));
+//        System.out.println(singleNumber2(nums));
     }
     public  static int singleNumber(int[] nums) {
         int result =0;
@@ -20,5 +21,12 @@ public class SingleNumber2 {
         }
         return result;
 
+    }
+    public static int singleNumber2(int[] nums) {
+        int result = 0;
+        for (int num : nums) {
+            result+=num;
+        }
+        return result%3;
     }
 }

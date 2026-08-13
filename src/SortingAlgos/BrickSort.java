@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class BrickSort {
     public static void main(String[] args) {
         int[] arr = {2,23, 14,455 ,9, 7, 8};
-        System.out.println(Arrays.toString(brickSort(arr)));
+        System.out.println(Arrays.toString(sort(arr)));
     }
     public static int[] brickSort(int[] arr){
         int n = arr.length;
@@ -32,6 +32,30 @@ public class BrickSort {
         }
 
 
+        return arr;
+    }
+
+    public static int[] sort(int [] arr){
+        int n= arr.length;
+        boolean swapped = true;
+        while(swapped){
+            boolean isSwapped = false;
+            for(int i = 0; i<n-1;i+=2){
+                if(arr[i] > arr[i+1]){
+                    swap(arr, i, i+1);
+                    isSwapped = true;
+                }
+            }
+            for(int i = 1; i<n-1;i+=2){
+                if(arr[i] > arr[i+1]){
+                    swap(arr, i, i+1);
+                    isSwapped = true;
+                }
+            }
+            if(!isSwapped){
+                swapped = false;
+            }
+        }
         return arr;
     }
 

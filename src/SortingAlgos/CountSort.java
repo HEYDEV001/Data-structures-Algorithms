@@ -6,7 +6,7 @@ public class CountSort {
     public static void main(String[] args) {
         // TC = O(N+K) where K is the maximum element
         int [] arr  = {2, 34,5 ,3, 12,1 ,435 ,6 ,87};
-        System.out.println(Arrays.toString(countSort(arr)));
+        System.out.println(Arrays.toString(sort(arr)));
     }
     public static int[] countSort(int[] arr) {
         int max = Integer.MIN_VALUE;
@@ -30,4 +30,31 @@ public class CountSort {
         }
         return res;
     }
+
+    public  static int[] sort(int [] arr){
+        int max = Integer.MIN_VALUE;
+        for(int a : arr){
+            max = Math.max(a, max);
+        }
+        int[] count  = new int [max+1];
+        for(int a : arr){
+            count[a]++;
+        }
+        for(int i = 1; i <= max; i++){
+            count[i]+=count[i-1];
+        }
+        int n = arr.length;
+        int[] res = new int[n];
+        for(int i  = n-1; i >= 0; i--){
+            int val = arr[i];
+            int prefixSum  = count[val];
+            res[prefixSum-1] = val;
+            count[val]--;
+        }
+        return res;
+
+    }
 }
+
+
+

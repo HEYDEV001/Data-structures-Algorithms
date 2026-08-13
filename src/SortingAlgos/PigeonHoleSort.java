@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class PigeonHoleSort {
     public static void main(String[] args) {
         int [] arr  = {2, 34,5 ,3, 12,1 ,435 ,6 ,87};
-        System.out.println(Arrays.toString(pigeonholeSort(arr)));
+        System.out.println(Arrays.toString(sort(arr)));
     }
     public static int[] pigeonholeSort(int[] arr) {
         int n = arr.length;
@@ -41,4 +41,35 @@ public class PigeonHoleSort {
         return arr;
 
     }
-}
+
+    public static int[] sort(int[]arr){
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for(int a : arr){
+            if(a>max){
+                max = a;
+            }
+            if(a<min){
+                min = a;
+            }}
+            int size  = max - min + 1;
+            int [] count = new int[size];
+            for(int b : arr){
+                b = b-min;
+                count[b]++;
+            }
+
+            int index = 0;
+            for(int i=0 ;i<size;i++){
+                while(count[i]>0){
+                    arr[index] = i + min;
+                    index++;
+                    count[i]--;
+                }
+            }
+        return arr;
+        }
+
+    }
+
+
