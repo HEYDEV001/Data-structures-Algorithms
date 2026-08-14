@@ -1,4 +1,4 @@
-package binarySearch.ShashCode.Questions;
+package binarySearch.ShashCode.Questions.Matrix;
 
 public class SearchMatrixII {
     public static void main(String[] args) {
@@ -10,9 +10,11 @@ public class SearchMatrixII {
     }
 
     public static boolean searchMatrix(int[][] matrix, int target) {
+        int totalRows = matrix.length;
+        int totalCols = matrix[0].length;
         int rows = 0;
-        int cols = matrix[0].length - 1;
-        while (rows < matrix.length && cols >= 0) {
+        int cols = totalCols - 1;
+        while (rows < totalRows && cols >= 0) {
             if (matrix[rows][cols] == target) {
                 return true;
             } else if (matrix[rows][cols] > target) {

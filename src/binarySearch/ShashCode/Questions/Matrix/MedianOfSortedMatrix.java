@@ -1,4 +1,4 @@
-package binarySearch.ShashCode.Questions;
+package binarySearch.ShashCode.Questions.Matrix;
 
 public class MedianOfSortedMatrix {
     public static void main(String[] args) {
