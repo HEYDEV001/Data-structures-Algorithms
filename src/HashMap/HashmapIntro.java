@@ -1,7 +1,6 @@
 package HashMap;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class HashmapIntro {
@@ -37,6 +36,13 @@ public class HashmapIntro {
                     "rank=" + rank +
                     '}';
         }
+
+        @Override
+        public boolean equals(Object o) {
+           Ranking ranking = (Ranking) o;
+            return this.rank == ranking.rank;
+        }
+
     }
 
     public static void main(String[] args) {
@@ -85,6 +91,7 @@ public class HashmapIntro {
         map2.put(323, 3);
         map2.put(423, 4);
         System.out.println(map2.get(223));
+        System.out.println(map2.containsKey(123));
 
         // Custom key-value classes
         // When we want the Custom key-value classes then we have to override the equals() and hashcode() method of key's class & toString() method of the value's class
@@ -94,5 +101,6 @@ public class HashmapIntro {
         map3.put(new Registration(323), new Ranking(3));
         map3.put(new Registration(423), new Ranking(4));
         System.out.println(map3.get(new Registration(123)));
+        System.out.println(map3.containsKey(new Registration(223)));
     }
 }
