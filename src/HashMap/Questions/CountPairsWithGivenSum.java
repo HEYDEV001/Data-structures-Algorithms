@@ -5,12 +5,13 @@ import java.util.HashMap;
 public class CountPairsWithGivenSum {
     public static void main(String[] args) {
         int[] arr = {1,5, 7, 1};
-        System.out.println(countPairs(arr, 6));
+        System.out.println(countPairs2(arr, 6));
 
     }
     public static int countPairs(int[] nums, int target) {
         HashMap<Integer, Integer> map = new HashMap<>();
         int count =0;
+        //Frequency Map
         for (int i : nums) {
             map.put(i, map.getOrDefault(i, 0) + 1);
         }
@@ -28,6 +29,19 @@ public class CountPairsWithGivenSum {
             }
 
 
+        }
+        return count;
+    }
+    public static int countPairs2(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int count =0;
+        for (int i : nums) {
+            if (i > target) {
+                continue;
+            }
+            int rem = target - i;
+            count += map.getOrDefault(rem, 0);
+            map.put(i, map.getOrDefault(i, 0) + 1);
         }
         return count;
     }
