@@ -32,6 +32,7 @@ public class CountPairsWithGivenSum {
         }
         return count;
     }
+    // Second Approach
     public static int countPairs2(int[] nums, int target) {
         HashMap<Integer, Integer> map = new HashMap<>();
         int count =0;
