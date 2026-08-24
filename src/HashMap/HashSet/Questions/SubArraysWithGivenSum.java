@@ -5,8 +5,8 @@ import java.util.HashMap;
 
 public class SubArraysWithGivenSum {
     public static void main(String[] args) {
-        int[] arr = {0,0,1,4};
-        System.out.println(subArraysWithSum(arr, 5));
+        int[] arr = {38, 28, 21, 6 ,28, 38, 11, 34, 4, 38, 34, 42, 36, 22};
+        System.out.println(subArraysWithSum(arr, 28));
 
     }
     public static ArrayList<Integer> subArraysWithSum(int[] arr, int target) {
@@ -36,10 +36,11 @@ public class SubArraysWithGivenSum {
             sum += arr[i];
             int rem = sum - target;
             if(map.containsKey(rem)){
-                if((sum-arr[i]-arr[i-1]) ==0){
+                if(i>0 && (i-1)>0 && (sum-arr[i]-arr[i-1])  ==0){
                     res.set(0,1);
+                }else{
+                    res.set(0, map.get(rem)+2);
                 }
-                res.set(0, map.get(rem)+2);
                 res.add(i+1);
                 break;
             }
