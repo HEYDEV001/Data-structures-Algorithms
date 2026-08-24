@@ -39,9 +39,7 @@ public class FindMinimumNumberOfSets {
         HashMap<Integer, Integer> map = new HashMap<>();
         for(int element : nums){
             map.put(element,map.getOrDefault(element,0) + 1);
-            if(map.get(element)>count){
-                count = map.get(element);
-            }
+            count = Math.max(count, map.get(element));
         }
         return count;
     }
