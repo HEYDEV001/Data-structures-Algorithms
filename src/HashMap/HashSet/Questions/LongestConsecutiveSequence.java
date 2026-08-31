@@ -1,6 +1,7 @@
 package HashMap.HashSet.Questions;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class LongestConsecutiveSequence {
     public static void main(String[] args) {
@@ -26,6 +27,32 @@ public class LongestConsecutiveSequence {
             prev=nums[i];
             maxLength =Math.max(maxLength, length);
         }
+        return maxLength;
+    }
+
+    public int longestConsecutiveUsingHashSet(int[] nums) {
+        if(nums.length==0){
+            return 0;
+        }
+        HashSet<Integer> set = new HashSet<>();
+        for(int val : nums){
+            set.add(val);
+        }
+        int maxLength =0;
+        for(Integer ele : set){
+            int prevEl = ele - 1;
+            if(!set.contains(prevEl)){
+                int length =1;
+                int nextElement = ele + 1;
+                while(set.contains(nextElement)){
+                    length++;
+                    nextElement++;
+                }
+                maxLength = Math.max(maxLength,length);
+            }
+        }
+
+
         return maxLength;
     }
 }
