@@ -31,4 +31,28 @@ public class TrappedRainWater {
         return totalTrappedWater;
 
     }
+
+
+
+    public int trapBestApproach(int[] height) {
+        int totalTrappedWater = 0;
+        int leftMax =0;
+        int rightMax =0;
+        int n = height.length;
+        int l =0;
+        int r = n-1;
+        while(l<r){
+            rightMax = Math.max(rightMax, height[r]);
+            leftMax = Math.max(leftMax, height[l]);
+            if(leftMax<rightMax){
+                totalTrappedWater += leftMax - height[l];
+                l++;
+            }else{
+                totalTrappedWater += rightMax - height[r];
+                r--;
+            }
+        }
+        return totalTrappedWater;
+
+    }
 }
