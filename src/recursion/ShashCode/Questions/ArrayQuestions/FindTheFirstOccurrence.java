@@ -1,4 +1,4 @@
-package recursion.ShashCode.Questions;
+package recursion.ShashCode.Questions.ArrayQuestions;
 
 public class FindTheFirstOccurrence {
     public static void main(String[] args) {

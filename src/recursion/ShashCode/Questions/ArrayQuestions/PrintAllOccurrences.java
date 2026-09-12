@@ -1,4 +1,4 @@
-package recursion.ShashCode.Questions;
+package recursion.ShashCode.Questions.ArrayQuestions;
 
 public class PrintAllOccurrences {
     public static void main(String[] args) {

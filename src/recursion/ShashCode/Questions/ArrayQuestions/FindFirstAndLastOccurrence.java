@@ -1,4 +1,4 @@
-package recursion.ShashCode.Questions;
+package recursion.ShashCode.Questions.ArrayQuestions;
 
 import java.util.Arrays;
 
