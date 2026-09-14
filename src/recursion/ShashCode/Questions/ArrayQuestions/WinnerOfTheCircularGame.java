@@ -33,4 +33,17 @@ public class WinnerOfTheCircularGame {
         }
         return queue.peek();
     }
+
+
+    // Using Recursion
+    public int findTheWinnerUsingRecursion(int n, int k) {
+        int index = helper(n, k);
+        return index +1;
+    }
+    public int helper(int n , int k ){
+        if(n==1){
+            return 0;
+        }
+        return (helper(n-1, k) + k)% n;
+    }
 }
