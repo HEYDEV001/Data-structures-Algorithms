@@ -10,6 +10,7 @@ public class SubSet2 {
         System.out.println(subsetsWithDup(nums));
     }
     public static  List<List<Integer>> subsetsWithDup(int[] nums) {
+        // sort to get all duplicates get lined up
         Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> current = new ArrayList<>();
@@ -29,6 +30,7 @@ public class SubSet2 {
         // removing while when the recursive call is over
         current.remove(current.size()-1);
         // No pick
+        //skip all duplicated while not picking (So that if you're not picking 2 then all the 2's must be avoided)
         while((index+1) < nums.length && nums[index] == nums[index+1]){
             index++;
         }
