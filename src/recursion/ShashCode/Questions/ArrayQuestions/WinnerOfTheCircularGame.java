@@ -46,4 +46,14 @@ public class WinnerOfTheCircularGame {
         }
         return (helper(n-1, k) + k)% n;
     }
+
+
+    // Best approach constructing the answer bottom up
+    public int findTheWinnerBest(int n, int k) {
+        int ans =0;
+        for(int i =2; i<=n; i++){
+            ans = (ans + k) % i;
+        }
+        return ans+1;
+    }
 }
