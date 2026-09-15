@@ -8,6 +8,7 @@ public class LetterCombinationsOfAPhoneNumber {
     public static void main(String[] args) {
 
     }
+    // This approach is using String so it takes extra TC
     public static List<String> letterCombinations(String digits) {
         HashMap<Character, String> map = new HashMap<>();
         map.put('2', "abc");
@@ -36,6 +37,37 @@ public class LetterCombinationsOfAPhoneNumber {
             // Either the above three lines or this bottom line
             // backTrack(digits, index +1,  current + letters.charAt(i),result,map);
             // because we are not adding anything into the current string we are just passing it to the next recursion call with a value so oit doesn't need to delete it after completing the call
+        }
+
+    }
+
+
+    // Approach 2 - Using StringBuilder
+    public List<String> letterCombinationsApproach2(String digits) {
+        HashMap<Character, String> map = new HashMap<>();
+        map.put('2', "abc");
+        map.put('3', "def");
+        map.put('4', "ghi");
+        map.put('5', "jkl");
+        map.put('6', "mno");
+        map.put('7', "pqrs");
+        map.put('8', "tuv");
+        map.put('9', "wxyz");
+        List<String> result  = new ArrayList<>();
+        backTrackApproach2(digits, 0, new StringBuilder(""), result, map);
+        return result;
+    }
+    public void backTrackApproach2(String digits, int index, StringBuilder current, List<String> result, HashMap<Character, String> map){
+        if(index == digits.length()){
+            result.add(current.toString());
+            return;
+        }
+        char digit = digits.charAt(index);
+        String letters = map.get(digit);
+        for(int i =0; i< letters.length(); i++){
+            current.append(letters.charAt(i));
+            backTrackApproach2(digits, index +1,  current,result,map);
+            current.deleteCharAt(current.length()-1);
         }
 
     }
