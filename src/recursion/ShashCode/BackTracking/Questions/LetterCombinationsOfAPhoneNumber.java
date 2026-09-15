@@ -8,6 +8,7 @@ public class LetterCombinationsOfAPhoneNumber {
     public static void main(String[] args) {
 
     }
+    // TC - K^N (where K can be either 3 or 4) and N is the size of the digits string
     // This approach is using String so it takes extra TC
     public static List<String> letterCombinations(String digits) {
         HashMap<Character, String> map = new HashMap<>();
