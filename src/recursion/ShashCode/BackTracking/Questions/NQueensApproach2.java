@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class NQueensApproach2 {
     public static void main(String[] args) {
         System.out.println(solveNQueens(4));
@@ -21,7 +20,7 @@ public class NQueensApproach2 {
     }
 
     private static void positions(int row, char[][] board, List<List<String>> result, int size) {
-        if(row == board.length){
+        if(row ==size){
             constructAnswer(board, result);
             return;
         }
