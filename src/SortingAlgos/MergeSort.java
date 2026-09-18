@@ -1,4 +1,4 @@
-package recursion.ShashCode;
+package SortingAlgos;
 
 public class MergeSort {
     public static void main(String[] args) {

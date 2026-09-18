@@ -1,4 +1,4 @@
-package recursion.ShashCode;
+package SortingAlgos;
 
 public class QuickSort {
     public static void main(String[] args) {
