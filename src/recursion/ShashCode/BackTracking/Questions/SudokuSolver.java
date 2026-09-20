@@ -1,13 +1,30 @@
 package recursion.ShashCode.BackTracking.Questions;
 
+import java.util.Arrays;
+
 public class SudokuSolver {
     public static void main(String[] args) {
+        char[][] board =
+                {{'5','3','.','.','7','.','.','.','.'},
+                        {'6','.','.','1','9','5','.','.','.'},
+                        {'.','9','8','.','.','.','.','6','.'},
+                        {'8','.','.','.','6','.','.','.','3'},
+                        {'4','.','.','8','.','3','.','.','1'},
+                        {'7','.','.','.','2','.','.','.','6'},
+                        {'.','6','.','.','.','.','2','8','.'},
+                        {'.','.','.','4','1','9','.','.','5'},
+                        {'.','.','.','.','8','.','.','7','9'}};
+
+       solveSudoku(board);
+       for (int i = 0; i < board.length; i++) {
+           System.out.println(Arrays.toString(board[i]));
+       }
 
     }
-    public void solveSudoku(char[][] board) {
+    public static void solveSudoku(char[][] board) {
         solve( board,0,0);
     }
-    private boolean solve(char[][] board, int row, int col){
+    private static boolean solve(char[][] board, int row, int col){
         if(col==9){
             col=0;
             row = row+1;
@@ -32,7 +49,7 @@ public class SudokuSolver {
         return false;
     }
 
-    private boolean isPlacementPossible(char[][] board, char digit, int row, int col){
+    private static boolean isPlacementPossible(char[][] board, char digit, int row, int col){
         for(int j =0 ; j<9;j++){
             // current col
             if(board[j][col]==digit) return false;

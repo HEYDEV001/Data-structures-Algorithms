@@ -5,6 +5,8 @@ import java.util.List;
 
 public class PalindromePartitioning {
     public static void main(String[] args) {
+        String s = "aab";
+        System.out.println(partition(s));
 
     }
     public static List<List<String>> partition(String s) {
@@ -20,8 +22,9 @@ public class PalindromePartitioning {
             return;
         }
         for(int end = index; end<n;end++){
+            String str = s.substring(index,end+1);
             if(isPalindrome(s,index, end)){
-                current.add(s.substring(index,end+1));
+                current.add(str);
                 allPalindromes(end+1, res, current, s);
                 current.removeLast();
             }
