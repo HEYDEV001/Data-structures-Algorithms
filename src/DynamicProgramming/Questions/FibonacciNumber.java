@@ -37,4 +37,20 @@ public class FibonacciNumber {
         }
         return dp[n];
     }
+
+    // Without using any extra space as we needed only two previous answers, so we update those two values with every pass
+    public int fib3(int n) {
+        if(n<2){
+            return n ;
+        }
+        int prev1  = 0;
+        int prev2 = 1;
+        int ans = 0;
+        for( int state = 2 ; state<=n;state++){
+            ans = prev2 + prev1;
+            prev1 = prev2;
+            prev2 = ans;
+        }
+        return ans;
+    }
 }
