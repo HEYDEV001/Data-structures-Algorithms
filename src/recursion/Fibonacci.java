@@ -2,7 +2,7 @@ package recursion;
 
 public class Fibonacci {
     public static void main(String[] args) {
-        System.out.println(getFibonacci(6));
+        System.out.println(getFibonacci(38));
     }
     public static int getFibonacci(int n) {
         if(n==0) return 0;
