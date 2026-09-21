@@ -1,4 +1,4 @@
-package DynamicProgramming.Questions;
+package DynamicProgramming.Questions.Easy;
 
 import java.util.Arrays;
 

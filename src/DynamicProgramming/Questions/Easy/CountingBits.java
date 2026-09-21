@@ -1,4 +1,4 @@
-package DynamicProgramming.Questions;
+package DynamicProgramming.Questions.Easy;
 
 public class CountingBits {
     public static void main(String[] args) {
