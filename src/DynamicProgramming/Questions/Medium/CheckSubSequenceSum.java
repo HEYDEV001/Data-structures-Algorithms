@@ -63,4 +63,42 @@ public class CheckSubSequenceSum {
         return dp[index][target] ==1 ? true : false;
 
     }
+
+
+    // Using 2d - DP (Tabulation)
+    // 1-> true
+    // 0-> not Visited
+    // 2-> false
+    public boolean checkSubsequenceSum3(int[] arr, int k) {
+        int n = arr.length ;
+        // code here
+        int [][] dp = new int[n][k+1];
+        // Target = 0;
+        for(int i=0; i < n ; i++){
+            dp[i][0] = 1;
+        }
+        // Index = 0;
+        for(int t=1; t <= k ; t++){
+            if(arr[0] == t ){
+                dp[0][t] = 1;
+            }else{
+                dp[0][t] = 2;
+            }
+        }
+        for(int i = 1; i<n ; i++){
+            for(int j =1 ; j<=k ; j++){
+                int pick = 2;
+                if(arr[i] <= j){
+                    pick = dp[i-1][j-arr[i]];
+                    if(pick == 1){
+                        dp[i][j] = 1;
+                        continue;
+                    }
+                }
+                int noPick = dp[i-1][j];
+                dp[i][j] = noPick;
+            }
+        }
+        return (dp[n-1][k]==1);
+    }
 }
