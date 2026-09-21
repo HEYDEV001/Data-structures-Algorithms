@@ -101,4 +101,43 @@ public class CheckSubSequenceSum {
         }
         return (dp[n-1][k]==1);
     }
+
+
+    // Using 2d - DP (Tabulation)(Space Optimisation)
+    // 1-> true
+    // 0-> not Visited
+    // 2-> false
+    public boolean checkSubsequenceSum4(int[] arr, int k) {
+        int n = arr.length ;
+        // code here
+        int[] prev = new int [k+1];
+        // Target = 0;
+        prev[0] = 1;
+        // Index = 0;
+        for(int t=1; t <= k ; t++){
+            if(arr[0] == t ){
+                prev[t] = 1;
+            }else{
+                prev[t] = 2;
+            }
+        }
+        for(int i = 1; i<n ; i++){
+            int[] current = new int [k+1];
+            current [0] =1;
+            for(int j =1 ; j<=k ; j++){
+                int pick = 2;
+                if(arr[i] <= j){
+                    pick = prev[j-arr[i]];
+                    if(pick == 1){
+                        current[j] = 1;
+                        continue;
+                    }
+                }
+                int noPick = prev[j];
+                current[j] = noPick;
+            }
+            prev = current;
+        }
+        return (prev[k]==1);
+    }
 }
