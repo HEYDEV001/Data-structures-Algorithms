@@ -71,4 +71,39 @@ public class CountSubSetsWithSum {
         dp[index][target] = noPick + pick;
         return dp[index][target];
     }
+
+
+    // Tabulation
+    static int perfectSum3(int[] arr, int target) {
+
+        // code here
+        int index = arr.length-1;
+        int[][] dp = new int[index+1][target+1];
+        for(int t = 0 ; t<= target; t++){
+            if(arr[0] == 0 && t ==0){
+                dp[0][t] =2;
+            }
+            else if(t ==0 ) {
+                dp[0][t] =1;
+            }
+            else if(t == arr[0]){
+                dp[0][t] =1;
+            }
+            else{
+                dp[0][t] =0;
+            }
+        }
+        for(int i  = 1 ; i <= index ; i++){
+            for( int t = 0 ; t <= target ; t++ ){
+                int  pick =0;
+                if(arr[i] <= t){
+                    pick = dp[i-1][t-arr[i]];
+                }
+                int noPick = dp[i-1][t];
+                dp[i][t] = noPick + pick;
+            }
+        }
+        return dp[index][target];
+
+    }
 }
