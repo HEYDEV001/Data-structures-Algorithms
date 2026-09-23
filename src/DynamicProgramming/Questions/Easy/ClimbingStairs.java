@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class ClimbingStairs {
     public static void main(String[] args) {
+        System.out.println(climbStairs2(4));
 
     }
     // Using Recursion
@@ -18,14 +19,15 @@ public class ClimbingStairs {
     }
 
     // Using Memoization
-    public int climbStairs2(int n) {
+    public static int climbStairs2(int n) {
         int[] dp = new int[n+1];
         Arrays.fill(dp, -1);
         return recur(n, dp);
     }
-    public int recur(int n, int[] dp) {
+    public static int recur(int n, int[] dp) {
         if(n<=2){
             dp[n] = n;
+            return n ;
         }
         if(dp[n] != -1){
             return dp[n];
