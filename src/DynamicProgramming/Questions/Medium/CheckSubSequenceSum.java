@@ -140,4 +140,40 @@ public class CheckSubSequenceSum {
         }
         return (prev[k]==1);
     }
+
+    // Tabulation  + space Optimisation
+    static int perfectSum(int[] arr, int target) {
+
+        // code here
+        int index = arr.length-1;
+        int[] prev = new int[target+1];
+        for(int t = 0 ; t<= target; t++){
+            if(arr[0] == 0 && t ==0){
+                prev[t] =2;
+            }
+            else if(t ==0 ) {
+                prev[t] =1;
+            }
+            else if(t == arr[0]){
+                prev[t] =1;
+            }
+            else{
+                prev[t] =0;
+            }
+        }
+        for(int i  = 1 ; i <= index ; i++){
+            int[] curr = new int[target+1];
+            for( int t = 0 ; t <= target ; t++ ){
+                int  pick =0;
+                if(arr[i] <= t){
+                    pick = prev[t-arr[i]];
+                }
+                int noPick = prev[t];
+                curr[t] = noPick + pick;
+            }
+            prev = curr;
+        }
+        return prev[target];
+
+    }
 }
