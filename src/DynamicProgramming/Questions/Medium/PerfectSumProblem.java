@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class PerfectSumProblem {
     public static void main(String[] args) {
-        int[] arr = {2, 5, 1, 4, 3};
-        System.out.println(countSubSequences3(arr, 10));
+        int[] arr = {2, 5, 1, 4, 3, 10};
+        System.out.println(countSubSequences4(arr, 10));
 
     }
 
@@ -72,6 +72,7 @@ public class PerfectSumProblem {
     }
 
 
+    // tabulation
     public static int countSubSequences3(int[] arr, int target) {
         int index = arr.length - 1;
         int[][] dp = new int[index + 1][target + 1];
@@ -95,5 +96,33 @@ public class PerfectSumProblem {
             }
         }
         return dp[index][target];
+    }
+
+
+    //TODO: Still need to Dry Run
+    public static int countSubSequences4(int[] arr, int target) {
+        int index = arr.length - 1;
+        int[] prev = new int[target + 1];
+        for (int t = 0; t <= target; t++) {
+            if (arr[0] == t) {
+                prev[t] = 1;
+            }
+        }
+
+        prev[0] = 1;
+        for (int i = 1; i <= index; i++) {
+            int [] curr = new int[target + 1];
+            curr[0] = 1;
+            for (int t = 1; t <= target; t++) {
+                int pick = 0;
+                if (arr[i] <= t) {
+                    pick = prev[t - arr[i]];
+                }
+                int noPick = prev[t];
+               curr[t] = pick + noPick;
+            }
+            prev = curr;
+        }
+        return prev[target];
     }
 }
