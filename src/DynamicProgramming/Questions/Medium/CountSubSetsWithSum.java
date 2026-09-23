@@ -1,5 +1,7 @@
 package DynamicProgramming.Questions.Medium;
 
+import java.util.Arrays;
+
 public class CountSubSetsWithSum {
     public static void main(String[] args) {
 
@@ -23,5 +25,50 @@ public class CountSubSetsWithSum {
         }
         int noPick = recur(arr, target, index-1);
         return noPick + pick;
+    }
+
+
+    static int perfectSum2(int[] arr, int target) {
+
+        // code here
+        int index = arr.length-1;
+        int[][] dp = new int[index+1][target+1];
+        for(int i  = 0 ; i <= index ; i++){
+            Arrays.fill(dp[i], -1);
+        }
+        return recur(arr, target, arr.length-1, dp);
+
+    }
+
+    public static  int recur(int [] arr, int target, int index, int[][] dp ) {
+        if(index == 0){
+            if(arr[0] == target && target ==0){
+                dp[index][target] =2;
+                return dp[index][target];
+            }
+            else if(target ==0 ) {
+                dp[index][target] =1;
+                return dp[index][target];
+            }
+            else if(target == arr[index]){
+                dp[index][target] =1;
+                return dp[index][target];
+            }
+            else{
+                dp[index][target] =0;
+                return dp[index][target];
+            }
+        }
+        if(dp[index][target] != -1){
+            return dp[index][target];
+        }
+        int  pick =0;
+        if(arr[index] <= target){
+            pick = recur(arr, target-arr[index], index-1,dp);
+
+        }
+        int noPick = recur(arr, target, index-1,dp);
+        dp[index][target] = noPick + pick;
+        return dp[index][target];
     }
 }
