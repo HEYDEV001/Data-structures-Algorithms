@@ -1,9 +1,11 @@
 package DynamicProgramming.Questions.Medium;
 
+import java.util.Arrays;
+
 public class PerfectSumProblem {
     public static void main(String[] args) {
         int[] arr = {2, 5, 1, 4, 3};
-        System.out.println(countSubSequences(arr, 10));
+        System.out.println(countSubSequences2(arr, 10));
 
     }
     public static  int countSubSequences(int [] arr, int target) {
@@ -13,18 +15,58 @@ public class PerfectSumProblem {
 
     public static  int recur(int [] arr, int target, int index) {
             if(index == 0){
-                if(arr[0] == target){
+                if(arr[index] == target){
                     return 1;
                 }
             }
             if(target == 0){
                 return 1;
             }
-            if(index >= 0){
-                int pick = recur(arr, target-arr[index], index-1);
+            int pick  = 0;
+            if(index > 0 ){
+                if(arr[index] <= target){
+                    pick = recur(arr, target-arr[index], index-1);
+                }
                 int noPick = recur(arr, target, index-1);
-                return noPick + pick;
+                return pick + noPick;
             }
             return 0;
             }
+
+
+            // Using Memoization
+    public static  int countSubSequences2(int [] arr, int target) {
+        int index = arr.length-1;
+        int[][] dp = new int[index+1][target+1];
+        for(int i  = 0 ; i <= index ; i++){
+            Arrays.fill(dp[i], -1);
+        }
+        return recurDP(arr, target, index, dp);
+    }
+
+    public static  int recurDP(int [] arr, int target, int index, int[][] dp) {
+        if(index == 0){
+            if(arr[0] == target){
+                dp[0][target] = 1;
+                return 1;
+            }
+        }
+        if(target == 0){
+            dp[index][0] = 1;
+            return 1;
+        }
+        if(dp[index][target] != -1){
+            return dp[index][target];
+        }
+        int pick  = 0;
+        if(index > 0 ){
+            if(arr[index] <= target){
+                pick = recur(arr, target-arr[index], index-1);
+            }
+            int noPick = recur(arr, target, index-1);
+            dp[index][target] = pick + noPick;
+            return dp[index][target];
+        }
+        return 0;
+    }
 }
