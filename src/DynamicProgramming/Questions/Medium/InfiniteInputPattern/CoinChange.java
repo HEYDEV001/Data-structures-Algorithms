@@ -98,4 +98,35 @@ public class CoinChange {
             return res;
         }
     }
+
+    // Using DP(Tabulation + Space Optimisation)
+    public static int coinChange4(int[] coins, int amount) {
+        int n = coins.length -1;
+        int[]prev = new int[amount + 1];
+        for (int a = 0; a <= amount; a++) {
+            if(a % coins[0] == 0){
+                prev[a] = a/coins[0];
+            }else {
+                prev[a] = (int) (1e9);
+            }
+        }
+        for(int i  = 1 ; i <= n ; i++){
+            int[] current = new int[amount + 1];
+            for(int a = 0 ; a <= amount ; a++ ){
+                int pick = (int)(1e9);
+                if(coins[i] <= a){
+                    pick = 1 + current[a-coins[i]];
+                }
+                int noPick = prev[a];
+                current[a] = Math.min(pick, noPick);
+            }
+            prev = current;
+        }
+        int res = prev[amount];
+        if(res == (int)(1e9)){
+            return -1;
+        }else{
+            return res;
+        }
+    }
 }
