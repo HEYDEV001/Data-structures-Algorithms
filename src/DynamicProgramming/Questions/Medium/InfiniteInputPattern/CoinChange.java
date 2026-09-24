@@ -53,9 +53,10 @@ public class CoinChange {
             if(amount % coins[index] == 0){
                 dp[index][amount] = amount/coins[0];
                 return dp[index][amount];
+            }else{
+                dp[index][amount] = (int)(1e9);
+                return dp[index][amount];
             }
-            dp[index][amount] = (int)(1e9);
-            return dp[index][amount];
         }
         if(dp[index][amount] != -1){
             return dp[index][amount];
@@ -67,5 +68,34 @@ public class CoinChange {
         int noPick = result(coins, amount, index-1, dp);
         dp[index][amount] = Math.min(pick, noPick);
         return dp[index][amount];
+    }
+
+    // Using DP(Tabulation)
+    public static int coinChange3(int[] coins, int amount) {
+        int n = coins.length -1;
+        int[][] dp = new int[n+1][amount + 1];
+        for (int a = 0; a <= amount; a++) {
+            if(a % coins[0] == 0){
+                dp[0][a] = a/coins[0];
+            }else {
+                dp[0][a] = (int) (1e9);
+            }
+        }
+        for(int i  = 1 ; i <= n ; i++){
+            for(int a = 0 ; a <= amount ; a++ ){
+                int pick = (int)(1e9);
+                if(coins[i] <= a){
+                    pick = 1 + dp[i][a-coins[i]];
+                }
+                int noPick = dp[i-1][a];
+                dp[i][a] = Math.min(pick, noPick);
+            }
+        }
+        int res = dp[n][amount];
+        if(res == (int)(1e9)){
+            return -1;
+        }else{
+            return res;
+        }
     }
 }
