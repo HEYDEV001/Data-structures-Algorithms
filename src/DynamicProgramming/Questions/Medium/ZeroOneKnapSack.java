@@ -69,7 +69,7 @@ public class ZeroOneKnapSack {
         return dp[index][cap];
     }
 
-    // DP(Memoization)
+    // DP(Tabulation)
     public int knapsack3(int cap, int val[], int wt[]) {
         // code here
         int n  = val.length-1;
@@ -95,6 +95,37 @@ public class ZeroOneKnapSack {
             }
         }
         return dp[n][cap];
+
+    }
+
+    // DP(Tabulation + Space Optimisation)
+    public int knapsack4(int cap, int val[], int wt[]) {
+        // code here
+        int n  = val.length-1;
+        int[]prev = new int[cap+1];
+        for (int c = 0; c <= cap; c++) {
+            if(wt[0] <= c){
+                prev[c] = val[0];
+            }else{
+                prev[c] = 0;
+            }
+        }
+        for (int i = 1; i <= n; i++) {
+            prev[0] = 0;
+        }
+        for (int i = 1; i <= n; i++) {
+            int[] current = new int[cap+1];
+            for (int c = 1; c <= cap; c++) {
+                int pick = 0;
+                if(wt[i] <= c){
+                    pick = val[i] +  prev[c-wt[i]];
+                }
+                int noPick =  prev[c];
+                current[c] = Math.max(pick, noPick);
+            }
+            prev = current;
+        }
+        return prev[cap];
 
     }
 }
