@@ -110,9 +110,7 @@ public class ZeroOneKnapSack {
                 prev[c] = 0;
             }
         }
-        for (int i = 1; i <= n; i++) {
-            prev[0] = 0;
-        }
+        prev[0] = 0;
         for (int i = 1; i <= n; i++) {
             int[] current = new int[cap+1];
             for (int c = 1; c <= cap; c++) {
