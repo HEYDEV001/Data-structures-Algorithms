@@ -63,5 +63,56 @@ public class CoinChange2 {
         return dp[index][amount];
     }
 
+    // Dp(Tabulation)
+    public static int change3(int amount, int[] coins) {
+        int n  = coins.length-1;
+        int[][] dp = new int[n+1][amount+1];
+        for(int a = 0; a <= amount ; a++){
+            if(a % coins[0] == 0){
+                dp[0][a] = 1;
+            }else{
+                dp[0][a] =0;
+            }
+        }
+        for(int i = 1; i <= n ; i++){
+            for(int a = 0; a <= amount ; a++){
+                int pick = 0 ;
+                if(coins[i] <= a){
+                    pick = dp[i][a-coins[i]];
+                }
+                int noPick = dp[i-1][a];
+                dp[i][a] = pick + noPick;
+            }
+        }
+        return dp[n][amount];
 
+    }
+
+
+    // Dp(Tabulation + Space Optimisation)
+    public static int change4(int amount, int[] coins) {
+        int n  = coins.length-1;
+        int[]prev = new int[amount+1];
+        for(int a = 0; a <= amount ; a++){
+            if(a % coins[0] == 0){
+                prev[a] = 1;
+            }else{
+                prev[a] =0;
+            }
+        }
+        for(int i = 1; i <= n ; i++){
+            int[] current = new int[amount +1];
+            for(int a = 0; a <= amount ; a++){
+                int pick = 0 ;
+                if(coins[i] <= a){
+                    pick = current[a-coins[i]];
+                }
+                int noPick = prev[a];
+                current[a] = pick + noPick;
+            }
+            prev = current;
+        }
+        return prev[amount];
+
+    }
 }
