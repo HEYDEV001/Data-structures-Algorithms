@@ -1,10 +1,12 @@
 package DynamicProgramming.Questions.Medium.InfiniteInputPattern;
 
+import java.util.Arrays;
+
 public class ShortestCommonSuperSequenceLength {
     public static void main(String[] args) {
         String str1 = "abca";
         String str2 = "cab";
-        System.out.println(shortestCommonSuperSequence(str1, str2));
+        System.out.println(shortestCommonSuperSequence2(str1, str2));
 
     }
 
@@ -26,6 +28,36 @@ public class ShortestCommonSuperSequenceLength {
             int case2 = lengthOfCommonSubSequence(text1, text2, i, j-1);
             return Math.max(case1, case2);
         }
+    }
 
-}
+    // Memoization
+    public static int shortestCommonSuperSequence2(String str1, String str2) {
+        int n = str1.length();
+        int m = str2.length();
+        int[][] dp  = new int[n+1][m+1];
+        for(int i = 0; i < n; i++){
+            Arrays.fill(dp[i], -1);
+        }
+        return (n+m) - (lengthOfCommonSubSequence(str1, str2, n-1, m-1, dp));
+    }
+
+    private  static int lengthOfCommonSubSequence(String text1, String text2, int i , int j, int[][]dp){
+        if(i== 0 || j== 0 ){
+            dp[i][j] = 0;
+            return dp[i][j];
+        }
+        if(dp[i][j] != -1){
+            return dp[i][j];
+        }
+        if(text1.charAt(i-1) == text2.charAt(j-1)){
+            dp[i][j] = 1 + lengthOfCommonSubSequence(text1, text2, i-1, j-1);
+            return dp[i][j];
+        }else{
+            int case1 = lengthOfCommonSubSequence(text1, text2, i-1, j);
+            int case2 = lengthOfCommonSubSequence(text1, text2, i, j-1);
+            dp[i][j] = Math.max(case1, case2);
+            return dp[i][j];
+        }
+    }
+
 }
