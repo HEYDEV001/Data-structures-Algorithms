@@ -6,7 +6,7 @@ public class ShortestCommonSuperSequenceLength {
     public static void main(String[] args) {
         String str1 = "abca";
         String str2 = "cab";
-        System.out.println(shortestCommonSuperSequence4(str1, str2));
+        System.out.println(shortestCommonSuperSequence3(str1, str2));
 
     }
 
@@ -74,14 +74,18 @@ public class ShortestCommonSuperSequenceLength {
         for(int i = 1; i <= n; i++){
             for(int j = 1; j <= m; j++){
                 if(str1.charAt(i-1) == str2.charAt(j-1)){
-                    dp[i][j] = 1 + dp[i-1][j-1];//lengthOfCommonSubSequence(str1, str1, i-1, j-1);
+                    dp[i][j] = 1 + dp[i-1][j-1];
                 }else{
-                    int case1 = dp[i-1][j];//lengthOfCommonSubSequence(text1, text2, i-1, j);
-                    int case2 = dp[i][j-1];//lengthOfCommonSubSequence(text1, text2, i, j-1);
+                    int case1 = dp[i-1][j];
+                    int case2 = dp[i][j-1];
                     dp[i][j] = Math.max(case1, case2);
                 }
             }
         }
+        for(int i = 0; i <= n; i++){
+            System.out.println(Arrays.toString(dp[i]));
+        }
+
         return (n+m) - dp[n][m];
     }
 
@@ -98,10 +102,10 @@ public class ShortestCommonSuperSequenceLength {
             int[] current = new int[m+1];
             for(int j = 1; j <= m; j++){
                 if(str1.charAt(i-1) == str2.charAt(j-1)){
-                    current[j] = 1 + prev[j-1];//lengthOfCommonSubSequence(str1, str1, i-1, j-1);
+                    current[j] = 1 + prev[j-1];
                 }else{
-                    int case1 = prev[j];//lengthOfCommonSubSequence(text1, text2, i-1, j);
-                    int case2 = current[j-1];//lengthOfCommonSubSequence(text1, text2, i, j-1);
+                    int case1 = prev[j];
+                    int case2 = current[j-1];
                     current[j] = Math.max(case1, case2);
                 }
             }
