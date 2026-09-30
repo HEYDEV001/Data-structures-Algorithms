@@ -1,4 +1,4 @@
-package GreedyAlgo;
+package GreedyAlgo.Questions;
 
 import java.util.Arrays;
 
