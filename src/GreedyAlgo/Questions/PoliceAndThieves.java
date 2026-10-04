@@ -31,4 +31,37 @@ public class PoliceAndThieves {
         }
         return caught;
     }
+
+    public static int catchThieves2(char[] arr, int k) {
+        // code here
+        int n = arr.length;
+        int[] police = new int[n];
+        int[] thieve = new int[n];
+        int i  =0 ;
+        int j =0;
+        for(int m  =0 ; m < n ; m++){
+            if(arr[m] == 'P') {
+                police[i] = m;
+                i++;
+            }else if(arr[m] == 'T') {
+                thieve[j] = m;
+                j++;
+            }
+        }
+        int caught =0 ;
+        int p =0 ;
+        int t =0 ;
+        while(p < i  && t < j ){
+            if(Math.abs(police[p] - thieve[t]) <= k){
+                caught++;
+                p++;
+                t++;
+            }else if(police[p] > thieve[t]){
+                t++;
+            }else if(police[p] < thieve[t]) {
+                p++;
+            }
+        }
+        return caught;
+    }
 }
