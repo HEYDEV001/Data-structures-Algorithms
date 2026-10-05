@@ -6,9 +6,6 @@ import java.util.Collections;
 
 public class FractionalKnapsack {
     public static void main(String[] args) {
-            int[] weights = {10, 20 ,30};
-            int[] values = {60, 100 ,120};
-        System.out.println(fractionalKnapsack(values, weights, 50));
     }
 
     public class Item implements Comparable<Item> {
