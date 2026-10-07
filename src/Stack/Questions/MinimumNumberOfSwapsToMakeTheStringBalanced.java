@@ -6,7 +6,7 @@ public class MinimumNumberOfSwapsToMakeTheStringBalanced {
     public static void main(String[] args) {
 
     }
-    public int minSwaps(String s) {
+    public int minSwapsUsingStack(String s) {
         int n  = s.length();
         Stack<Character> stack = new Stack<>();
         for(int i = 0 ; i < n ; i++){
@@ -30,7 +30,6 @@ public class MinimumNumberOfSwapsToMakeTheStringBalanced {
         int n  = s.length();
         int open = 0 ;
         int close = 0 ;
-        Stack<Character> stack = new Stack<>();
         for(int i = 0 ; i < n ; i++){
             char ch = s.charAt(i);
             if(ch == '['){
