@@ -67,4 +67,27 @@ public class LongestValidParentheses {
         }
         return max;
     }
+
+
+    public int longestValidParenthesesUsingSingleCustomStack(String s) {
+        int n = s.length();
+        int max = 0;
+        int[] stack = new int[n +1];
+        int index =-1;
+        stack[++index] = -1;
+        for(int i =0 ; i < n ; i++){
+            char ch = s.charAt(i);
+            if(ch == '('){
+                stack[++index] = i;
+            }else{
+                index--;
+                if(index == -1){
+                    stack[++index] = i;
+                }else{
+                    max = Math.max(max, i - stack[index]);
+                }
+            }
+        }
+        return max;
+    }
 }
