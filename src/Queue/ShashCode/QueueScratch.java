@@ -45,6 +45,10 @@ public class QueueScratch<T> {
             }
             Object val = queue[front];
             front = front + 1;
+            if(front == rear){
+                front = -1;
+                rear = -1;
+            }
             return val;
         }catch (Exception e) {
             throw(new RuntimeException(e.getMessage()));
