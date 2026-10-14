@@ -25,14 +25,16 @@ public class QueueScratch<T> {
     }
 
     public void enqueue(Object value) {
-
         if (isFull()) {
+            queue[rear] = value;
+            System.out.println("Inserted " + value + " into the queue");
             return;
         }
         if (isEmpty()) {
             front = rear = 0;
         }
         queue[rear] = value;
+        System.out.println("Inserted " + value + " into the queue");
         rear++;
     }
     public Object dequeue() {
@@ -72,12 +74,13 @@ public class QueueScratch<T> {
             System.out.println("Queue is empty");
             return;
         }
-        for (int i = 0; i < rear; i++) {
+        for (int i = 0; i <=rear; i++) {
             System.out.print(queue[i]);
-            if(i != rear-1){
+            if(i != rear){
                 System.out.print(",");
             }
         }
+        System.out.println();
     }
 
 }

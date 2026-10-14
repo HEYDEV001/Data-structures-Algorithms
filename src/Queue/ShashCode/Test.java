@@ -14,6 +14,15 @@ public class Test {
         System.out.println(queue.size());
         System.out.println(queue.peek());
         queue.printQueue();
+
+
+        QueueScratch<String> stringQueue = new QueueScratch<>(10);
+        for(int i = 0; i < n; i++){
+            stringQueue.enqueue((i+1) + " apple");
+        }
+        System.out.println(stringQueue.size());
+        stringQueue.printQueue();
+
     }
 
 }
