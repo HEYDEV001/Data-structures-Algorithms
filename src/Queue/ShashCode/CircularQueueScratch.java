@@ -1,6 +1,6 @@
 package Queue.ShashCode;
 
-public class CircularQueueScratch<E> {
+public class CircularQueueScratch<T> {
     int front;
     int rear;
     int capacity;
@@ -23,7 +23,7 @@ public class CircularQueueScratch<E> {
         return size == capacity;
     }
 
-    public void enqueue(Object value) {
+    public void enqueue(T value) {
         if (isFull()) {
             System.out.println("Queue is full");
             return;

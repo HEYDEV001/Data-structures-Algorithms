@@ -24,59 +24,49 @@ public class QueueScratch<T> {
         return rear == capacity - 1;
     }
 
-    public void enqueue(Object value) {
+    public void enqueue(T value) {
         if (isFull()) {
-            queue[rear] = value;
-            System.out.println("Inserted " + value + " into the queue");
             return;
         }
         if (isEmpty()) {
             front = rear = 0;
+        }else {
+            rear++;
         }
         queue[rear] = value;
         System.out.println("Inserted " + value + " into the queue");
-        rear++;
     }
-    public Object dequeue() {
-        try{
+
+    @SuppressWarnings("unchecked")
+    public T dequeue() {
             if (isEmpty()) {
-                System.out.println("Queue is empty");
-                return null;
+                throw new IllegalStateException("Queue is Empty");
             }
-            Object val = queue[front];
+            T val = (T) queue[front];
             front = front + 1;
             if(front == rear){
                 front = -1;
                 rear = -1;
             }
             return val;
-        }catch (Exception e) {
-            throw(new RuntimeException(e.getMessage()));
-
-        }
     }
 
-    public Object peek() {
-        try{
-            if (isEmpty()) {
-                System.out.println("Queue is empty");
-                return null;
-            }else{
-                return queue[front];
+    @SuppressWarnings("unchecked")
+    public T peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Queue is Empty");
+        }else{
+                return (T)queue[front];
             }
-        }catch (Exception e) {
-            throw(new RuntimeException(e.getMessage()));
 
-        }
     }
     public int size() {
         return rear - front + 1;
     }
 
     public void printQueue(){
-        if(isEmpty()){
-            System.out.println("Queue is empty");
-            return;
+        if (isEmpty()) {
+            throw new IllegalStateException("Queue is Empty");
         }
         for (int i = 0; i <=rear; i++) {
             System.out.print(queue[i]);
