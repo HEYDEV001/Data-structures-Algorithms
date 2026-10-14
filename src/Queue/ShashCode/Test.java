@@ -42,6 +42,18 @@ public class Test {
 
 
 
+
+        DequeScratch<Integer> dequeScratch = new DequeScratch<>(10);
+        for(int i = 0; i < n/2; i++){
+            dequeScratch.insertFront(i );
+        }
+        System.out.println(dequeScratch.size());
+        dequeScratch.printDequeue();
+        dequeScratch.insertRear(5);
+        dequeScratch.printDequeue();
+        dequeScratch.isEmpty();
+        dequeScratch.isFull();
+        dequeScratch.printDequeue();
     }
 
 }
