@@ -66,12 +66,30 @@ public class Test {
             queueUsingStack.enqueue(i);
         }
         queueUsingStack.enqueue(10);
-        System.out.println(queueUsingStack.size());
-        System.out.println(queueUsingStack.peek());
-        System.out.println(queueUsingStack.dequeue());
-        System.out.println(queueUsingStack.size());
-        System.out.println(queueUsingStack.peek());
-        System.out.println(queueUsingStack.dequeue());
+        System.out.println("Size : " +queueUsingStack.size());
+        System.out.println("Peek is :" + queueUsingStack.peek());
+        System.out.println("DEQUEUE : " + queueUsingStack.dequeue());
+        System.out.println("Size : " +queueUsingStack.size());
+        System.out.println("Peek is :" + queueUsingStack.peek());
+        System.out.println("DEQUEUE : " + queueUsingStack.dequeue());
+
+
+
+        //Queue Using stack Approach two
+
+        QueueUsingStackApproachTwo<Integer> queueUsingStack2 = new QueueUsingStackApproachTwo<>();
+        n = 10;
+        for(int i = 0; i < n; i++){
+            queueUsingStack2.enqueue(i);
+        }
+        queueUsingStack2.enqueue(10);
+        System.out.println("Size : " +queueUsingStack2.size());
+        System.out.println("Peek is :" + queueUsingStack2.peek());
+        System.out.println("DEQUEUE : " + queueUsingStack2.dequeue());
+        System.out.println("Size : " +queueUsingStack2.size());
+        System.out.println("Peek is :" + queueUsingStack2.peek());
+        System.out.println("DEQUEUE : " + queueUsingStack2.dequeue());
+
     }
 
 }
