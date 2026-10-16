@@ -54,6 +54,24 @@ public class Test {
         dequeScratch.isEmpty();
         dequeScratch.isFull();
         dequeScratch.printDequeue();
+
+
+
+
+
+        // Queue using Stack
+        QueueUsingStack<Integer> queueUsingStack = new QueueUsingStack<>();
+        n = 10;
+        for(int i = 0; i < n; i++){
+            queueUsingStack.enqueue(i);
+        }
+        queueUsingStack.enqueue(10);
+        System.out.println(queueUsingStack.size());
+        System.out.println(queueUsingStack.peek());
+        System.out.println(queueUsingStack.dequeue());
+        System.out.println(queueUsingStack.size());
+        System.out.println(queueUsingStack.peek());
+        System.out.println(queueUsingStack.dequeue());
     }
 
 }
