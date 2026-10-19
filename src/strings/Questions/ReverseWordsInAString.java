@@ -21,4 +21,19 @@ public class ReverseWordsInAString {
     }
 
 
+    public String reverseWords2(String s) {
+        StringBuilder res = new StringBuilder("");
+        String[] arr = s.split(" ");
+        for(int i = arr.length - 1; i >= 0; i--){
+            if(arr[i].isEmpty()){
+                continue;
+            }
+            if(res.isEmpty()){
+                res.append(arr[i]);
+            }else{
+                res.append(" ").append(arr[i]);
+            }
+        }
+        return res.toString();
+    }
 }
