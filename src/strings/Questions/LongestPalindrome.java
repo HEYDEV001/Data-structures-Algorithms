@@ -1,6 +1,7 @@
 package strings.Questions;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class LongestPalindrome {
     public static void main(String[] args) {
@@ -21,5 +22,21 @@ public class LongestPalindrome {
             }
         }
         return (oddCount>0) ? result +1 : result;
+    }
+
+
+    public int longestPalindrome2(String s) {
+        HashSet<Character> set  = new HashSet<>();
+        int result=0;
+        for(int i = 0 ; i < s.length(); i++){
+            char key = s.charAt(i);
+            if(set.contains(key)){
+                result +=2;
+                set.remove(key);
+            }else{
+                set.add(key);
+            }
+        }
+        return (!set.isEmpty()) ? result +1 : result;
     }
 }
