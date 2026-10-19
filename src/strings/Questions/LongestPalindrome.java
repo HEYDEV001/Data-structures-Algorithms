@@ -39,4 +39,22 @@ public class LongestPalindrome {
         }
         return (!set.isEmpty()) ? result +1 : result;
     }
+
+
+    public int longestPalindrome3(String s) {
+        int[] set = new int[128];
+        int result=0;
+        int oddCount =0;
+        for(char ch : s.toCharArray()){
+            if(set[ch] != 0){
+                result +=2;
+                set[ch] =0;
+                oddCount--;
+            }else{
+                set[ch] = 1;
+                oddCount++;
+            }
+        }
+        return (oddCount > 0) ? result +1 : result;
+    }
 }
