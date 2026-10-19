@@ -21,4 +21,30 @@ public class Anagram {
 
     }
 
+    public static boolean areAnagrams2(String s1, String s2) {
+        if(s1.length() != s2.length()){
+            return false;
+        }
+        int[] characters = new int[26];
+        int len = s1.length();
+        int i  = 0;
+        while(i < s1.length()){
+            char c1 = s1.charAt(i);
+            int indexOfC1 = c1-97;
+            characters[indexOfC1]++;
+
+            char c2 = s2.charAt(i);
+            int indexOfC2 = c2-97;
+            characters[indexOfC2]++;
+        }
+
+        for(i = 0 ; i < 26 ; i++){
+            if(characters[i] != 0){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
 }
