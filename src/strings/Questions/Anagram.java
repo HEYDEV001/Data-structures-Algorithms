@@ -36,8 +36,30 @@ public class Anagram {
             char c2 = s2.charAt(i);
             int indexOfC2 = c2-97;
             characters[indexOfC2]++;
+            i++;
         }
 
+        for(i = 0 ; i < 26 ; i++){
+            if(characters[i] != 0){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+
+    public static boolean areAnagrams3(String s1, String s2) {
+        if(s1.length() != s2.length()){
+            return false;
+        }
+        int[] characters = new int[26];
+        int i  = 0;
+        while(i < s1.length()){
+            characters[s1.charAt(i)-'a']++;
+            characters[s2.charAt(i)-'a']--;
+            i++;
+        }
         for(i = 0 ; i < 26 ; i++){
             if(characters[i] != 0){
                 return false;
