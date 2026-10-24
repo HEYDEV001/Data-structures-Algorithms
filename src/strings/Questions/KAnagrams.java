@@ -25,4 +25,31 @@ public class KAnagrams {
         }
         return (count <= k);
     }
+
+
+
+    public boolean areKAnagrams2(String s1, String s2, int k) {
+        // code here
+        int n = s1.length();
+        int m = s2.length();
+        if(n != m) return false;
+
+        int[] frequency = new int[26];
+
+        for(int i=0 ; i < n ; i++ ){
+           frequency[s1.charAt(i) - 'a']++;
+        }
+
+        for(int i=0 ; i < n ; i++ ){
+            if(frequency[s2.charAt(i) - 'a'] > 0){
+                frequency[s2.charAt(i) - 'a']--;
+            }
+
+        }
+        int count  = 0;
+        for(int j = 0 ; j < 26; j++){
+            count +=frequency[j];
+        }
+        return (count <= k);
+    }
 }
