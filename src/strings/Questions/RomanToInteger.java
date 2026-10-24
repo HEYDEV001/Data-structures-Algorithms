@@ -33,4 +33,33 @@ public class RomanToInteger {
         }
         return result;
     }
+
+
+    public int romanToInt2(String s) {
+
+        int[] characters = new int[128];
+        characters['I'] = 1;
+        characters['V'] = 5;
+        characters['X'] = 10;
+        characters['L'] = 50;
+        characters['C'] = 100;
+        characters['D'] = 500;
+        characters['M'] = 1000;
+        int result = 0;
+        // we will check the pairs if the first value of the first character of the  pair is less.
+        // then we will add there difference to the result and move to next pair (LC = 100-50 or IC = 100-1) here the first character hold less value
+        // and if the first is bigger. then we'll simply add that to the result and move to the next character
+        for (int i = 0; i < s.length(); i++) {
+            // here we check for index out of bound and comparison of the character of the pair
+            if(i+1 < s.length() && characters[s.charAt(i)] < characters[s.charAt(i+1)]){
+                result += (characters[s.charAt(i+1)] - characters[s.charAt(i)]);
+                // to move to next pair
+                i++;
+            }else{
+                result +=characters[s.charAt(i)];
+            }
+
+        }
+        return result;
+    }
 }
