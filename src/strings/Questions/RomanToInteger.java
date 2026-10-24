@@ -1,0 +1,36 @@
+package strings.Questions;
+
+import java.util.HashMap;
+
+public class RomanToInteger {
+    public static void main(String[] args) {
+
+    }
+    public int romanToInt(String s) {
+
+        HashMap<Character, Integer> map = new HashMap<>();
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
+        int result = 0;
+        // we will check the pairs if the first value of the first character of the  pair is less.
+        // then we will add there difference to the result and move to next pair (LC = 100-50 or IC = 100-1) here the first character hold less value
+        // and if the first is bigger. then we'll simply add that to the result and move to the next character
+        for (int i = 0; i < s.length(); i++) {
+                // here we check for index out of bound and comparison of the character of the pair
+            if(i+1 < s.length() && map.get(s.charAt(i)) < map.get(s.charAt(i+1))){
+                result += (map.get(s.charAt(i+1)) - map.get(s.charAt(i)));
+                // to move to next pair
+                i++;
+            }else{
+                result += map.get(s.charAt(i));
+            }
+
+        }
+        return result;
+    }
+}
