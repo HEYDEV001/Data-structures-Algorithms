@@ -79,6 +79,8 @@ public class CountSubSetsWithSum {
         // code here
         int index = arr.length-1;
         int[][] dp = new int[index+1][target+1];
+        // Calculations when index == 0
+        // for index ==0 check for every target from 0 to <= target
         for(int t = 0 ; t<= target; t++){
             if(arr[0] == 0 && t ==0){
                 dp[0][t] =2;
@@ -104,6 +106,43 @@ public class CountSubSetsWithSum {
             }
         }
         return dp[index][target];
+
+    }
+
+    static int perfectSum4(int[] arr, int target) {
+
+        // code here
+        int index = arr.length-1;
+        int[] prev = new int[target+1];
+        // Calculations when index == 0
+        // for index ==0 check for every target from 0 to <= target
+        for(int t = 0 ; t<= target; t++){
+            if(arr[0] == 0 && t ==0){
+                prev[t] =2;
+            }
+            else if(t ==0 ) {
+                prev[t] =1;
+            }
+            else if(t == arr[0]){
+                prev[t] =1;
+            }
+            else{
+                prev[t] =0;
+            }
+        }
+        for(int i  = 1 ; i <= index ; i++){
+            int[] current  = new int[target+1];
+            for( int t = 0 ; t <= target ; t++ ){
+                int  pick =0;
+                if(arr[i] <= t){
+                    pick = prev[t-arr[i]];
+                }
+                int noPick = prev[t];
+                current[t] = noPick + pick;
+            }
+            prev = current;
+        }
+        return prev[target];
 
     }
 }
