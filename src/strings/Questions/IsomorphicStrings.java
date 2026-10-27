@@ -32,7 +32,7 @@ public class IsomorphicStrings {
 
 
 
-    public boolean isIsomorphic(String s, String t) {
+    public boolean isIsomorphic2(String s, String t) {
         int n = s.length();
         int[] stMap = new int[128];
         int[] tsMap = new int[128];
