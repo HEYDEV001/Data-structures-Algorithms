@@ -43,7 +43,23 @@ public class Test {
         list.printList();
 
         System.out.println();
-        LinkedListScratch<Character> linkedListScratch = new LinkedListScratch<>();
+//        LinkedListScratch<Character> linkedListScratch = new LinkedListScratch<>();
+//        linkedListScratch.insertAtTail('a');
+//        linkedListScratch.insertAtTail('b');
+//        linkedListScratch.insertAtTail('c');
+//        linkedListScratch.insertAtTail('d');
+//        linkedListScratch.printList();
+//
+//        linkedListScratch.searchNode('c');
+//        linkedListScratch.deleteAtPosition(3);
+//        linkedListScratch.searchNode('c');
+//        linkedListScratch.printList();
+//        linkedListScratch.updateNode('c', 3);
+//        linkedListScratch.printList();
+//        System.out.println(linkedListScratch.searchNode('c'));
+
+
+        DoublyLinkedListScratch<Character> linkedListScratch = new DoublyLinkedListScratch<>();
         linkedListScratch.insertAtTail('a');
         linkedListScratch.insertAtTail('b');
         linkedListScratch.insertAtTail('c');
@@ -57,6 +73,7 @@ public class Test {
         linkedListScratch.updateNode('c', 3);
         linkedListScratch.printList();
         System.out.println(linkedListScratch.searchNode('c'));
+        linkedListScratch.printListReverse();
 
 
 
