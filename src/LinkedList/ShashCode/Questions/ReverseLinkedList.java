@@ -5,6 +5,7 @@ public class ReverseLinkedList {
 
     }
     public ListNode reverseList(ListNode head) {
+        // Iterative approach
         ListNode prev = null;
         ListNode current = head;
         while(current !=null){
@@ -15,4 +16,18 @@ public class ReverseLinkedList {
         }
         return prev;
     }
+
+    public ListNode reverseList(ListNode head) {
+        // Recursive Approach
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode last = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
+    }
+
+
+
 }
