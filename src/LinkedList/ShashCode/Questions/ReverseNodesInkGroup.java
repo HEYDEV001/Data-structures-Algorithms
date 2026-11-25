@@ -32,7 +32,7 @@ public class ReverseNodesInkGroup {
 //                ansNode = prev;
 //            }else{
 //                prevHead.next = prev;
-//            }
+//            }25. Reverse Nodes in k-Group
 //            prevHead = currentHead;
 //            currentHead = current;
 //            counter++;
