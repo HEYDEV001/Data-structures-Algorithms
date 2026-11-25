@@ -21,7 +21,7 @@ public class StartOfTheCycle {
 //                break;
 //            }
 //        }
-//        if(isPresent == null){
+//        if(isPresent == false){
 //            return null;
 //        }
 //        slow = head;
